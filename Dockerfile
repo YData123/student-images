@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 ENV APP_DIR /srv/app
 ENV PATH ${APP_DIR}/venv/bin:$PATH
 
-ENV TZ=America/Los_Angeles
+ENV TZ=America/New_York
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && \
@@ -54,17 +54,17 @@ RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
     jupyter serverextension enable --py jupyterlab --sys-prefix
 
 # nbresuse to show users memory usage
-RUN pip install git+https://github.com/data-8/nbresuse.git@2f9144f && \
+RUN pip install git+https://github.com/ydata123/nbresuse.git@9ff7d3f && \
 	jupyter serverextension enable  --sys-prefix --py nbresuse && \
 	jupyter nbextension     install --sys-prefix --py nbresuse && \
 	jupyter nbextension     enable  --sys-prefix --py nbresuse
 
 # interact notebook extension
-RUN pip install git+https://github.com/data-8/nbgitpuller.git@de5a21a && \
+RUN pip install git+https://github.com/ydata123/nbgitpuller.git@07f6257 && \
 	jupyter serverextension enable  --sys-prefix --py nbgitpuller
 
 # Install nbzip
-RUN pip install git+https://github.com/data-8/nbzip.git@e41e156 && \
+RUN pip install git+https://github.com/ydata123/nbzip.git@ee15e03 && \
     jupyter serverextension enable  --sys-prefix --py nbzip && \
     jupyter nbextension     install --sys-prefix --py nbzip && \
     jupyter nbextension     enable  --sys-prefix --py nbzip
