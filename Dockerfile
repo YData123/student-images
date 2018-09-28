@@ -48,7 +48,7 @@ RUN python3.6 -m venv ${APP_DIR}/venv
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
-RUN pip install --no-cache-dir jupyterhub==0.8.1
+RUN pip install --no-cache-dir jupyterhub==0.9.2
 
 RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
     jupyter serverextension enable --py jupyterlab --sys-prefix
