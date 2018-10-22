@@ -13,10 +13,5 @@ ipywidgets==7.2.1
 jupyterlab==0.32.1
 tensorflow==1.11.0
 gensim==3.6.0	
-logging==0.4.9.6
 sklearn==0.19.1
-time==2.5
 nltk==3.3
-collections==2.7
-itertools==2.7
-os==3.7
