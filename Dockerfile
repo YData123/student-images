@@ -50,6 +50,12 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 RUN pip install --no-cache-dir jupyterhub==0.8.1
 
+RUN mkdir -p data && \
+    cd data && \
+    wget http://mattmahoney.net/dc/text8.zip && \
+    unzip text8.zip && \
+    rm text8.zip
+
 RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
     jupyter serverextension enable --py jupyterlab --sys-prefix
 
