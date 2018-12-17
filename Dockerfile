@@ -25,16 +25,13 @@ RUN pip install nbzip==0.1.0 && \
 
 COPY ipython_config.py ${IPYTHONDIR}/ipython_config.py
 
-## add conda install commands here BEFORE pip installs
-# RUN conda install --quiet --yes \
-#    'examplemodule1=1.0.1' \
-#    'examplemodule2=0.5*' \
-#    conda clean -tipsy && \
-#    fix-permissions $CONDA_DIR && \
-#    fix-permissions /home/$NB_USER
-
-## add pip install commands here AFTER conda installs
-# RUN pip install --no-cache-dir examplemodule1==1.0.1
+## add conda install commands here BEFORE pip installs, leave fix-permissions commands at end 
+# RUN conda install --yes 'astropy=3.1' && \
+#     conda clean -tipsy && \
+#     pip install --no-cache-dir git+https://github.com/data-8/Gofer-Grader.git@v0.4 && \
+#     pip install --no-cache-dir datascience==0.10.6 && \
+#     fix-permissions $CONDA_DIR && \
+#     fix-permissions /home/$NB_USER
 
 # HACK: We wanna make sure students don't hit the 60/hr/IP limit for github
 # So we just put in a Personal Access Token for a dummy here.
