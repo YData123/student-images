@@ -27,9 +27,14 @@ COPY ipython_config.py ${IPYTHONDIR}/ipython_config.py
 
 ## add conda install commands here BEFORE pip installs, leave fix-permissions commands at end 
 RUN conda install --yes 'astropy=3.1' && \
+    conda install --yes 'tensorflow=1.11.0' && \
+    conda install --yes 'nltk=3.3' && \
+    conda install --yes 'scikit-learn=0.20.0' && \
+    conda install --yes 'keras=2.2.4' && \
     conda clean -tipsy && \
     pip install --no-cache-dir git+https://github.com/data-8/Gofer-Grader.git@v0.4 && \
     pip install --no-cache-dir datascience==0.10.6 && \
+    pip install --no-cache-dir gensim==3.6.0 && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
 
