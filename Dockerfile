@@ -29,7 +29,7 @@ COPY ipython_config.py ${IPYTHONDIR}/ipython_config.py
 RUN conda install --yes 'astropy=3.1' && \
     conda install --yes 'numpy=1.15.3' && \
     conda install --yes 'scipy=1.1.0' && \
-#    conda install --yes 'display=1.0.0' && \
+    conda install --yes 'scikit-learn=0.20.2' && \
     conda install --yes 'george=0.3.1' && \ 
     conda install --yes 'pybind11=2.2.4' && \
     conda install --yes 'emcee=2.2.1' && \
@@ -38,6 +38,7 @@ RUN conda install --yes 'astropy=3.1' && \
     pip install --no-cache-dir git+https://github.com/data-8/Gofer-Grader.git@v0.4 && \
     pip install --no-cache-dir datascience==0.10.6 && \
     pip install --no-cache-dir display==1.0.0 && \
+	pip install --no-cache-dir lightkurve==1.0b29 && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
 
