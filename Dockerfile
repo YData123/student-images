@@ -22,7 +22,7 @@ COPY ipython_config.py ${IPYTHONDIR}/ipython_config.py
 # RUN conda install --yes 'astropy=3.1' && \
 #    conda clean -tipsy && \
 #    pip install --no-cache-dir git+https://github.com/data-8/Gofer-Grader.git@v0.4 && \
-    pip install --no-cache-dir datascience==0.15.3 && \
+RUN pip install --no-cache-dir datascience==0.15.3 && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
 
