@@ -1,6 +1,5 @@
-# from https://github.com/jupyter/docker-stacks/tree/df4a9681f19c/scipy-notebook
+# from https://github.com/jupyter/docker-stacks/tree/7a0c7325e470/scipy-notebook
 FROM jupyter/scipy-notebook:7a0c7325e470
-#last image w/ jupyterhub 0.9.6
 
 USER $NB_UID
 
